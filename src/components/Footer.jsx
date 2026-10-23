@@ -58,7 +58,6 @@ const Footer = () => {
                         <div className="grid gap-2 text-gray-600">
                             <a href="">Tips Sukses</a>
                             <a href="">Blog</a>
-                           
                         </div>
                     </div>
                 </div>
