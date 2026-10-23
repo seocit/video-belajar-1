@@ -1,6 +1,7 @@
 import HeroSection from "../components/HeroSection";
 import VideoCollection from "../components/VideoCollection";
 import Footer from "../components/Footer";
+
 const HomePage = () => {
 	return (
 		<>
