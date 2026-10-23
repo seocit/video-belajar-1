@@ -1,6 +1,7 @@
 import {Menu, Avatar} from "@mantine/core"
 import profileMenu from "../assets/images/profileMenu.png"
 import { LogOut } from "lucide-react"
+import { Link } from "react-router"
 
 export const ProfileMenu = () => {
     
@@ -13,7 +14,7 @@ export const ProfileMenu = () => {
             <Menu.Item>Profil Saya</Menu.Item>
             <Menu.Item>Kelas Saya</Menu.Item>
             <Menu.Item>Pesanan Saya</Menu.Item>
-            <Menu.Item color="red"> <div className="flex gap-2 items-center"><span>Keluar</span> <LogOut size={20} /></div> </Menu.Item>
+            <Menu.Item color="red"> <Link to={'/'} className="flex gap-2 items-center"><span>Keluar</span> <LogOut size={20} /></Link> </Menu.Item>
         </Menu.Dropdown>
     </Menu>
   )

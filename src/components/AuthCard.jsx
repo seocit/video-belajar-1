@@ -1,5 +1,6 @@
 import { PasswordInput, Input } from "@mantine/core";
 import googleLogo from "../assets/images/google-logo.png";
+import { Link } from "react-router";
 const AuthCard = () => {
 	return (
 		<>
@@ -28,12 +29,12 @@ const AuthCard = () => {
 							Lupa Password?
 						</a>
 					</div>
-					<button type="submit" className="w-full rounded-xl bg-primary py-2 text-white sm:py-2.5">
+					<Link type="submit" to={'/homepage'} className="w-full text-center rounded-xl bg-primary py-2 text-white sm:py-2.5">
 						Masuk
-					</button>
-					<button className="w-full rounded-xl bg-[#E2FCD9CC] py-2 text-primary sm:py-2.5">
+					</Link>
+					<Link to={'/register'} className="w-full  text-center rounded-xl bg-[#E2FCD9CC] py-2 text-primary sm:py-2.5">
 						Daftar
-					</button>
+					</Link>
 					<div className="my-2 flex items-center">
 						<div className="grow border-t border-gray-200"></div>
 						<span className="px-4 text-sm text-gray-500">atau</span>
