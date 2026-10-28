@@ -1,5 +1,7 @@
+import React from "react";
 import heroImage from "../assets/images/heroSection.jpg";
-const HeroSection = () => {
+
+const HeroSection: React.FC = () => {
 	return (
 		<section
 			style={{ backgroundImage: `url(${heroImage})` }}

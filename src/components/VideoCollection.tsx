@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { videos, catalogImages, profileImages } from "../api/data";
+import React, { useState } from "react";
+import { videos, catalogImages, profileImages, Video } from "../api/data";
 import ratingStar from "../assets/images/rating.svg";
 
-const VideoCollection = () => {
-	const [active, setActive] = useState(0);
+const VideoCollection: React.FC = () => {
+	const [active, setActive] = useState<number>(0);
 
-	const handleActiveTabs = (index) => {
+	const handleActiveTabs = (index: number) => {
 		setActive(index);
 	};
 
-	const categories = [
+	const categories: string[] = [
 		"Semua Kelas",
 		"Pemasaran",
 		"Desain",
@@ -20,7 +20,7 @@ const VideoCollection = () => {
 	return (
 		<>
 			<div className="flex flex-col mb-10 gap-3">
-				<h3 className="text-2xl font-semibold font-poppins ">
+				<h3 className="text-2xl font-semibold font-poppins">
 					Koleksi Video Pembelajaran Unggulan
 				</h3>
 				<p className="text-gray-800/80">
@@ -32,22 +32,23 @@ const VideoCollection = () => {
 					{categories.map((category, index) => {
 						return (
 							<button
+								key={category}
+								type="button"
 								className="flex flex-col px-2"
 								onClick={() => handleActiveTabs(index)}
 							>
 								<li
 									className={
 										active === index
-											? `text-tertiary`
-											: `text-gray-800/80 hover:shadow-md`
+											? "text-tertiary list-none"
+											: "text-gray-800/80 hover:shadow-md list-none"
 									}
-									key={category}
 								>
 									{category}
 								</li>
 								<div
 									className={
-										active === index && `bg-tertiary w-10 h-2 rounded-xl`
+										active === index ? "bg-tertiary w-10 h-2 rounded-xl" : ""
 									}
 								></div>
 							</button>
@@ -56,8 +57,8 @@ const VideoCollection = () => {
 				</ul>
 			</div>
 
-			<div className="flex flex-col gap-6 md:grid md:grid-cols-3  ">
-				{videos.map((video, index) => {
+			<div className="flex flex-col gap-6 md:grid md:grid-cols-3">
+				{videos.map((video: Video, index: number) => {
 					return (
 						<div
 							className="flex flex-col gap-3 p-4 border bg-white border-gray-400/40 rounded-2xl hover:shadow-xl transition-all"
@@ -67,20 +68,22 @@ const VideoCollection = () => {
 								<img
 									className="w-20 h-20 md:w-full md:h-48.25 rounded-xl content-center object-cover"
 									src={catalogImages[index % catalogImages.length]}
-									alt=""
+									alt={video.title}
 								/>
-								<div className="flex-col jsutify-center items-center gap-3">
+								<div className="flex flex-col justify-center gap-3">
 									<h3 className="font-semibold font-poppins">{video.title}</h3>
-									<p className="hidden md:block mb-3 text-gray-800/80">{video.description}</p>
+									<p className="hidden md:block mb-3 text-gray-800/80">
+										{video.description}
+									</p>
 									<div className="flex items-center gap-3">
 										<img
-											className="w-9 h-9 rounded-xl"
+											className="w-9 h-9 rounded-xl object-cover"
 											src={profileImages[index % profileImages.length]}
-											alt=""
+											alt={video.mentor.name}
 										/>
-										<span className="w-full overflow-x-auto ">
+										<span className="w-full overflow-x-auto">
 											<h3 className="font-semibold">{video.mentor.name}</h3>
-											<p className="text-sm w-max overflow-hidden scrollbar-none  text-gray-800/80">
+											<p className="text-sm w-max overflow-hidden scrollbar-none text-gray-800/80">
 												{video.mentor.job}
 											</p>
 										</span>
@@ -88,12 +91,11 @@ const VideoCollection = () => {
 								</div>
 							</div>
 							<div className="flex justify-between items-center">
-								<span className="flex gap-3 text-gray-600">
-									{" "}
-									<img src={ratingStar} alt="rating-star" />{" "}
+								<span className="flex gap-3 text-gray-600 items-center">
+									<img src={ratingStar} alt="rating-star" />
 									<p className="underline">
-										{video.rating}({video.viewer})
-									</p>{" "}
+										{video.rating} ({video.viewer})
+									</p>
 								</span>
 								<p className="text-primary text-2xl font-bold">
 									Rp {video.price}K

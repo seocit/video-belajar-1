@@ -16,7 +16,22 @@ import profile6 from "../assets/images/profile/profile-6.png";
 import profile7 from "../assets/images/profile/profile-7.png";
 import profile8 from "../assets/images/profile/profile-8.png";
 import profile9 from "../assets/images/profile/profile-9.png";
-const videos = [
+
+export interface Mentor {
+	name: string;
+	job: string;
+}
+
+export interface Video {
+	title: string;
+	description: string;
+	mentor: Mentor;
+	rating: number;
+	viewer: number;
+	price: number;
+}
+
+export const videos: Video[] = [
 	{
 		title: "Big 4 Auditor Financial Analyst",
 		description:
@@ -138,7 +153,8 @@ const videos = [
 		price: 300,
 	},
 ];
-const catalogImages = [
+
+export const catalogImages: string[] = [
 	catalog1,
 	catalog2,
 	catalog3,
@@ -150,7 +166,7 @@ const catalogImages = [
 	catalog9,
 ];
 
-const profileImages = [
+export const profileImages: string[] = [
 	profile1,
 	profile2,
 	profile3,
@@ -161,8 +177,3 @@ const profileImages = [
 	profile8,
 	profile9,
 ];
-export {
-	videos,
-	catalogImages,
-	profileImages,
-};
